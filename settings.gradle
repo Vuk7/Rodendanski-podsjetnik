@@ -1,0 +1,2 @@
+rootProject.name = "Rođendanski podsjetnik"
+include ':app'
