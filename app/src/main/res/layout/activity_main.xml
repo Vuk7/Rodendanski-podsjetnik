@@ -4,17 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pozadina"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="148dp"
-        android:layout_height="96dp"
-        android:text="@string/tekstview"
+        android:id="@+id/textView"
+        android:layout_width="159dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/danas"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="161dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="@string/nadolaze_i"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/ima_rodendan"
+        android:layout_width="382dp"
+        android:layout_height="227dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center|top"
+        android:text="@string/ime_prezime_ima_ro_endan_i_10_drugih"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <TextView
+        android:id="@+id/nadolazeci_tekst"
+        android:layout_width="382dp"
+        android:layout_height="227dp"
+        android:layout_marginBottom="114dp"
+        android:gravity="center|top"
+        android:text="@string/ime_prezime_20_5"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/vise_tipka"
+        android:layout_width="208dp"
+        android:layout_height="41dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/vi_e"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ima_rodendan"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/svi_tipka"
+        android:layout_width="145dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="311dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/svi"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/dodaj_tipka"
+        android:layout_width="145dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="311dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/dodaj"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
