@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pozadina_vise"
+    tools:context=".SviActivity">
+
+    <TextView
+        android:id="@+id/spremljeni_naziv"
+        android:layout_width="358dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/spremljeni_ro_endani"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ListView
+        android:id="@+id/vise_lista"
+        android:layout_width="362dp"
+        android:layout_height="552dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spremljeni_naziv"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <Button
+        android:id="@+id/povratak_tipka"
+        android:layout_width="121dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/povratak"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vise_lista"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/dodaj_tipka2"
+        android:layout_width="121dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/dodaj"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vise_lista"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

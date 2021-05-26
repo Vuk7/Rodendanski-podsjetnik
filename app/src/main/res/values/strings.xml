@@ -9,4 +9,11 @@
     <string name="ime_prezime_20_5">Ime Prezime (20.5)</string>
     <string name="svi">SVI</string>
     <string name="dodaj">DODAJ</string>
+    <string name="ro_endani_danas_28_9">Rođendani danas (28.9.)</string>
+    <string name="povratak">POVRATAK</string>
+    <string name="spremljeni_ro_endani">Spremljeni rođendani</string>
+    <string name="dodavanje_ro_endana">Dodavanje rođendana</string>
+    <string name="ime_i_prezime">IME I PREZIME</string>
+    <string name="unesite_naziv_osobe">Unesite naziv osobe</string>
+    <string name="datum_ro_enja">DATUM ROĐENJA</string>
 </resources>

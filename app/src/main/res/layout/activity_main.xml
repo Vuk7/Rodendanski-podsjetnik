@@ -74,14 +74,16 @@
         android:id="@+id/vise_tipka"
         android:layout_width="208dp"
         android:layout_height="41dp"
+        android:layout_marginTop="313dp"
         android:background="@drawable/roundedbutton"
         android:text="@string/vi_e"
         app:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/nadolazeci_tekst"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ima_rodendan"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
 
     <Button
         android:id="@+id/svi_tipka"
