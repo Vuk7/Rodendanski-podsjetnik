@@ -16,4 +16,7 @@
     <string name="ime_i_prezime">IME I PREZIME</string>
     <string name="unesite_naziv_osobe">Unesite naziv osobe</string>
     <string name="datum_ro_enja">DATUM ROĐENJA</string>
+    <string name="izaberite_datum_ro_enja">Izaberite datum rođenja</string>
+    <string name="dodajte_komentar">DODAJTE KOMENTAR</string>
+    <string name="unesite_komentar_neobavezno">Unesite komentar (neobavezno)</string>
 </resources>

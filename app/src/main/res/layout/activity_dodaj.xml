@@ -55,6 +55,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.233" />
 
+    <TextView
+        android:id="@+id/komentar_tekst"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="366dp"
+        android:background="#0FFF0000"
+        android:gravity="center"
+        android:text="@string/dodajte_komentar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ime_prezime_iza"
         android:layout_width="362dp"
@@ -69,7 +85,74 @@
             android:id="@+id/ime_prezime_ispred"
             android:layout_width="362dp"
             android:layout_height="62dp"
+            android:background="@drawable/roundedbutton"
             android:hint="@string/unesite_naziv_osobe" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/datum_tipka"
+        android:layout_width="362dp"
+        android:layout_height="62dp"
+        android:background="@drawable/roundedbutton"
+        android:foregroundGravity="left|center_vertical"
+        android:text="@string/izaberite_datum_ro_enja"
+        android:textColor="#7B7B7B"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datum_tekst"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/komentar_iza"
+        android:layout_width="362dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="414dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/komentar_ispred"
+            android:layout_width="362dp"
+            android:layout_height="180dp"
+            android:background="@drawable/roundedbutton"
+            android:hint="@string/unesite_komentar_neobavezno" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/povratak_nazad_tipka"
+        android:layout_width="121dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/povratak"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/komentar_iza"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/dodaj_uspjesno_tipka"
+        android:layout_width="121dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/dodaj"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/komentar_iza"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

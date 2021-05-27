@@ -14,6 +14,7 @@ public class ViseActivity extends AppCompatActivity {
 
     private Button povratak; // tipka koja nam omogucuje povratak u MainActivity (natrag_tipka)
     private TextView naziv_i_datum; // tekst na vrhu ekrana koji prikazuje datum (naziv)
+    private Button dodaj_prebaci; // tipka koja nam omogucuje prebacivanje u DodajActivity (dodaj_tipka)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,15 @@ public class ViseActivity extends AppCompatActivity {
         //---------------------------------------------------------------------------------------- > TEXTVIEW naziv
         naziv_i_datum = (TextView)findViewById(R.id.naziv);
         postaviTrenutniDatum();
+        //---------------------------------------------------------------------------------------- > TIPKA dodaj_tipka
+        dodaj_prebaci = (Button)findViewById(R.id.dodaj_tipka);
+
+        dodaj_prebaci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ViseActivity.this, DodajActivity.class));
+            }
+        });
         //---------------------------------------------------------------------------------------- >
     }
 

@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.174" />
 
     <Button
-        android:id="@+id/povratak_tipka"
+        android:id="@+id/povratak_nazad_tipka"
         android:layout_width="121dp"
         android:layout_height="46dp"
         android:layout_marginBottom="23dp"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/dodaj_tipka2"
+        android:id="@+id/dodaj_tipka_svi"
         android:layout_width="121dp"
         android:layout_height="46dp"
         android:layout_marginBottom="23dp"

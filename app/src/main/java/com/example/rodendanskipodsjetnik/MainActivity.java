@@ -9,9 +9,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button vise; //tipka koja prebacuje u ViseActivity (povezana sa vise_tipka)
-    private Button svi; //tipka koja prebacuje u SviActivity (povezana sa svi_tipka)
-    private Button dodaj; //tipka koja prebacuje u DodajActivity (povezana sa dodaj_tipka)
+    private Button vise; // tipka koja prebacuje u ViseActivity (povezana sa vise_tipka)
+    private Button svi; // tipka koja prebacuje u SviActivity (povezana sa svi_tipka)
+    private Button dodaj; // tipka koja prebacuje u DodajActivity (povezana sa dodaj_tipka)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
