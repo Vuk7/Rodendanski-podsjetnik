@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,7 +25,10 @@ public class DodajActivity extends AppCompatActivity {
     private Button datum; // tipka koja sluzi da biranje datuma rodenja (datum_tipka)
     private DatePickerDialog.OnDateSetListener izaberiDatumDialog;
 
+    private TextInputLayout ime_prezime; // sadrzi upisano ime i prezime (ime_prezime_iza)
+    private TextInputEditText ime_prezime_upis; // (ime_prezime_ispred)
 
+    public static final int maxDuljinaNazivaOsobe = 37; // konstanta sa maksimalnom duljinom karaktera u nazivu osobe
 
     private int dan, mjesec, godina; // sluze za spremanje izabranog datuma rodenja unutar izaberiDatum()
 
@@ -71,6 +77,9 @@ public class DodajActivity extends AppCompatActivity {
                 System.out.println(dan + " " + mjesec + " "+ godina);
             }
         };
+        //---------------------------------------------------------------------------------------- > TextInput ime_prezime
+        ime_prezime = (TextInputLayout) findViewById(R.id.ime_prezime_iza);
+        ime_prezime_upis = (TextInputEditText) findViewById(R.id.ime_prezime_ispred);
     }
 
     private void izaberiDatum()
@@ -92,6 +101,12 @@ public class DodajActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    private String dohvatiImePrezime()
+    {
+        String txt = ime_prezime.getEditText().getText().toString().trim();
+        return txt;
+    }
+
     private void dodajRodendan()
     {
         //provjerava je li izabran datum
@@ -99,6 +114,18 @@ public class DodajActivity extends AppCompatActivity {
         {
             datum.setTextColor(Color.parseColor("#FF0000"));
             greska("Niste izabrali datum!");
+            return;
+        }
+        //provjerava je li upisano ime i prezime
+        String naziv = dohvatiImePrezime();
+        if(naziv.isEmpty())
+        {
+            greska("Niste upisali naziv osobe!");
+            return;
+        }
+        else if(naziv.length() > maxDuljinaNazivaOsobe)
+        {
+            greska("Upisali ste predugi naziv osobe!");
             return;
         }
     }
