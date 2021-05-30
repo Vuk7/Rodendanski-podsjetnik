@@ -113,11 +113,13 @@ public class DodajActivity extends AppCompatActivity {
     private void izaberiDatum() // otvara dialog za izbor datuma
     {
         // inicijaliziramo godinu
-        godina = 2000;
-        mjesec = dan = 1;
+        if(dan == -1 || mjesec == -1 || godina == -1 || datum.getText().equals("Izaberite datum rođenja")) {
+            godina = 2000;
+            mjesec = dan = 1;
+        }
         // kreiramo dialog
         DatePickerDialog dialog = new DatePickerDialog(DodajActivity.this,
-                R.style.datepicker,izaberiDatumDialog,godina,mjesec,dan);
+                R.style.datepicker,izaberiDatumDialog,godina,(mjesec-1),dan);
         // postavljamo granice godina
         Calendar c = Calendar.getInstance();
         c.add(Calendar.YEAR, -120);
