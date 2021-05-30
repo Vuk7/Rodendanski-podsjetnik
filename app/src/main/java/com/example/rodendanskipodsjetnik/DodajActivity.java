@@ -19,17 +19,26 @@ import java.util.Date;
 
 public class DodajActivity extends AppCompatActivity {
 
+    //-------------------------------------------------------------------------------------------- > konstante
+
+    public static final int maxDuljinaNazivaOsobe = 37; // konstanta sa maksimalnom duljinom karaktera u nazivu osobe
+    public static final int maxDuljinaKomentara = 250; // konstanta sa maksimalnom duljinom karaktera u komentaru
+
+    //----------------------------------------------------------------------------------------------
+
     private Button povratak; // tipka koja nam omogucuje povratak u MainActivity (povratak_nazad_tipka)
     private Button dodaj; // tipka koja nam omogucuje dodavanje rodendana (dodaj_uspjesno_tipka)
 
-    private Button datum; // tipka koja sluzi da biranje datuma rodenja (datum_tipka)
+    private Button datum; // tipka koja sluzi za biranje datuma rodenja (datum_tipka)
     private DatePickerDialog.OnDateSetListener izaberiDatumDialog;
 
     private TextInputLayout ime_prezime; // sadrzi upisano ime i prezime (ime_prezime_iza)
     private TextInputEditText ime_prezime_upis; // (ime_prezime_ispred)
 
-    public static final int maxDuljinaNazivaOsobe = 37; // konstanta sa maksimalnom duljinom karaktera u nazivu osobe
+    private TextInputLayout komentar; // sadrzi upisano ime i prezime (komentar_iza)
+    private TextInputEditText komentar_upis; // (komentar_ispred)
 
+    //-------------------------------------------------------------------------------------------- > varijable
     private int dan, mjesec, godina; // sluze za spremanje izabranog datuma rodenja unutar izaberiDatum()
 
     @Override
@@ -69,20 +78,39 @@ public class DodajActivity extends AppCompatActivity {
         izaberiDatumDialog = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                godina = year;
-                mjesec = (month+1);
-                dan = dayOfMonth;
-                datum.setText(dan + "." + mjesec + "." + godina + ".");
-                datum.setTextColor(Color.parseColor("#7B7B7B"));
-                System.out.println(dan + " " + mjesec + " "+ godina);
+                postaviDatum(year,(month+1),dayOfMonth);
             }
         };
         //---------------------------------------------------------------------------------------- > TextInput ime_prezime
         ime_prezime = (TextInputLayout) findViewById(R.id.ime_prezime_iza);
         ime_prezime_upis = (TextInputEditText) findViewById(R.id.ime_prezime_ispred);
+        //---------------------------------------------------------------------------------------- > TextInput komentar
+        komentar = (TextInputLayout) findViewById(R.id.komentar_iza);
+        komentar_upis = (TextInputEditText) findViewById(R.id.komentar_ispred);
     }
-
-    private void izaberiDatum()
+    //-------------------------------------------------------------------------------------------- > naziv osobe (ime i prezime)
+    private String dohvatiImePrezime() // cita i vraca naziv osobe
+    {
+        String txt = ime_prezime.getEditText().getText().toString().trim();
+        return txt;
+    }
+    private boolean provjeriImePrezime() // provjerava je li upisano ime i prezime
+    {
+        String naziv = dohvatiImePrezime();
+        if(naziv.isEmpty())
+        {
+            greska("Niste upisali naziv osobe!");
+            return false;
+        }
+        else if(naziv.length() > maxDuljinaNazivaOsobe)
+        {
+            greska("Upisali ste predugi naziv osobe!");
+            return false;
+        }
+        return true;
+    }
+    //-------------------------------------------------------------------------------------------- > datum
+    private void izaberiDatum() // otvara dialog za izbor datuma
     {
         // inicijaliziramo godinu
         godina = 2000;
@@ -101,33 +129,50 @@ public class DodajActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private String dohvatiImePrezime()
+    private void postaviDatum(int year, int month, int day) // postavljamo datum rodenja
     {
-        String txt = ime_prezime.getEditText().getText().toString().trim();
-        return txt;
+        godina = year; mjesec = month; dan = day;
+        datum.setText(dan + "." + mjesec + "." + godina + ".");
+        datum.setTextColor(Color.parseColor("#7B7B7B"));
     }
 
-    private void dodajRodendan()
+    private boolean provjeriDatum() // provjerava je li izabran datum
     {
-        //provjerava je li izabran datum
         if(dan == -1 || mjesec == -1 || godina == -1 || datum.getText().equals("Izaberite datum rođenja"))
         {
             datum.setTextColor(Color.parseColor("#FF0000"));
             greska("Niste izabrali datum!");
-            return;
+            return false;
         }
-        //provjerava je li upisano ime i prezime
-        String naziv = dohvatiImePrezime();
-        if(naziv.isEmpty())
+        return true;
+    }
+
+    //-------------------------------------------------------------------------------------------- > komentar
+    private String dohvatiKomentar() // cita i vraca komentar
+    {
+        String txt = komentar.getEditText().getText().toString().trim();
+        return txt;
+    }
+
+    private boolean provjeriKomentar() // provjerava je li upisan komentar
+    {
+        String komentar_str = dohvatiKomentar();
+        if(komentar_str.isEmpty())
         {
-            greska("Niste upisali naziv osobe!");
-            return;
+            greska("Niste upisali komentar!");
+            return false;
         }
-        else if(naziv.length() > maxDuljinaNazivaOsobe)
+        else if(komentar_str.length() > maxDuljinaKomentara)
         {
-            greska("Upisali ste predugi naziv osobe!");
-            return;
+            greska("Upisali ste predugi komentar!");
+            return false;
         }
+        return true;
+    }
+    //-------------------------------------------------------------------------------------------- > dodavanje rodendana
+    private void dodajRodendan()
+    {
+        if(!provjeriImePrezime() || !provjeriDatum() || !provjeriKomentar()) return;
     }
 
     private void greska(String tekst)
