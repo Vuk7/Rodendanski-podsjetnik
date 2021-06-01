@@ -99,12 +99,12 @@ public class DodajActivity extends AppCompatActivity {
         String naziv = dohvatiImePrezime();
         if(naziv.isEmpty())
         {
-            greska("Niste upisali naziv osobe!");
+            poruka("Niste upisali naziv osobe!");
             return false;
         }
         else if(naziv.length() > maxDuljinaNazivaOsobe)
         {
-            greska("Upisali ste predugi naziv osobe!");
+            poruka("Upisali ste predugi naziv osobe!");
             return false;
         }
         return true;
@@ -143,12 +143,17 @@ public class DodajActivity extends AppCompatActivity {
         if(dan == -1 || mjesec == -1 || godina == -1 || datum.getText().equals("Izaberite datum rođenja"))
         {
             datum.setTextColor(Color.parseColor("#FF0000"));
-            greska("Niste izabrali datum!");
+            poruka("Niste izabrali datum!");
             return false;
         }
         return true;
     }
 
+    public String dohvatiDatum() // vraca datum u obliku stringa
+    {
+        String str = dan + "." + mjesec + "." + godina + ".";
+        return str;
+    }
     //-------------------------------------------------------------------------------------------- > komentar
     private String dohvatiKomentar() // cita i vraca komentar
     {
@@ -161,12 +166,12 @@ public class DodajActivity extends AppCompatActivity {
         String komentar_str = dohvatiKomentar();
         if(komentar_str.isEmpty())
         {
-            greska("Niste upisali komentar!");
+            poruka("Niste upisali komentar!");
             return false;
         }
         else if(komentar_str.length() > maxDuljinaKomentara)
         {
-            greska("Upisali ste predugi komentar!");
+            poruka("Upisali ste predugi komentar!");
             return false;
         }
         return true;
@@ -175,9 +180,13 @@ public class DodajActivity extends AppCompatActivity {
     private void dodajRodendan()
     {
         if(!provjeriImePrezime() || !provjeriDatum() || !provjeriKomentar()) return;
+        Rodendan rod = new Rodendan(DodajActivity.this);
+        rod.dodajRodendan(dohvatiImePrezime(),dohvatiDatum(),dohvatiKomentar());
+        poruka("Rođendan uspješno dodan!");
+        finish();
     }
 
-    private void greska(String tekst)
+    private void poruka(String tekst)
     {
         Toast errorToast = Toast.makeText(DodajActivity.this, tekst, Toast.LENGTH_SHORT);
         errorToast.show();
