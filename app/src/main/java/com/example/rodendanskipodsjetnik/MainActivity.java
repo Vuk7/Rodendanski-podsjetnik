@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     str += (rod.nazivi_osoba.get(i) + "\n\n");
                 }
+
+                ViseActivity.idovi.add(i);
             }
         }
         if(brojac == 0) str += "Danas nema rođendana.";
