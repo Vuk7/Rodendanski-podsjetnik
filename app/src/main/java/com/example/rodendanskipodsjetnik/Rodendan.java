@@ -26,6 +26,9 @@ public class Rodendan {
 
     public void ucitajRodendane()
     {
+        nazivi_osoba.clear();
+        datumi_rodenja.clear();
+        komentari.clear();
         Cursor podaci = db.ucitajRodendanBazu();
         while(podaci.moveToNext())
         {

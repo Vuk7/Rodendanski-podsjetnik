@@ -33,6 +33,7 @@ public class SviActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SviActivity.this, DodajActivity.class));
+                finish();
             }
         });
         //---------------------------------------------------------------------------------------- >

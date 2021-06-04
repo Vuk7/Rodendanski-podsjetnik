@@ -177,12 +177,15 @@ public class DodajActivity extends AppCompatActivity {
         return true;
     }
     //-------------------------------------------------------------------------------------------- > dodavanje rodendana
-    private void dodajRodendan()
-    {
-        if(!provjeriImePrezime() || !provjeriDatum() || !provjeriKomentar()) return;
+    private void dodajRodendan() {
+        if (!provjeriImePrezime() || !provjeriDatum() || !provjeriKomentar()) return;
+        //dodajemo rodendan u bazu
         Rodendan rod = new Rodendan(DodajActivity.this);
-        rod.dodajRodendan(dohvatiImePrezime(),dohvatiDatum(),dohvatiKomentar());
+        rod.dodajRodendan(dohvatiImePrezime(), dohvatiDatum(), dohvatiKomentar());
         poruka("Rođendan uspješno dodan!");
+        //mijenjamo tekst u pokrenutim activityima
+        MainActivity maina = new MainActivity();
+        maina.postaviTekst();
         finish();
     }
 

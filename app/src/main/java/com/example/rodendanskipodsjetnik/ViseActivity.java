@@ -40,6 +40,7 @@ public class ViseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ViseActivity.this, DodajActivity.class));
+                finish();
             }
         });
         //---------------------------------------------------------------------------------------- >
