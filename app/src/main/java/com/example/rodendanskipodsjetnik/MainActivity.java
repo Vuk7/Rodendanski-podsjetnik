@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         postaviNadolazeceRodendane();
     }
 
-    public String vratiDanasnjiDatum() // vraca string s danasnjim datumom (pr. "4.6.")
+    private String vratiDanasnjiDatum() // vraca string s danasnjim datumom (pr. "4.6.")
     {
         Calendar c = Calendar.getInstance();
         int dan = c.get(Calendar.DAY_OF_MONTH);
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         return str;
     }
 
-    public String stringListaRodendana() // vraca listu rodendana
+    private String stringListaRodendana() // vraca listu rodendana
     {
         String str = "";
         String datum = vratiDanasnjiDatum();
