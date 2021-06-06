@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ikona"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ikona"
         android:supportsRtl="true"
         android:theme="@style/Theme.RođendanskiPodsjetnik">
         <activity android:name=".DodajActivity" android:screenOrientation="portrait"></activity>
@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 </manifest>

@@ -2,6 +2,9 @@ package com.example.rodendanskipodsjetnik;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -63,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
         nadolazeci_rodendani = (TextView) findViewById(R.id.nadolazeci_tekst);
         //---------------------------------------------------------------------------------------- > postavljanje teksta
         postaviTekst(); // mijenja tekstove s listom rodendana
-        //---------------------------------------------------------------------------------------- >
+        //---------------------------------------------------------------------------------------- > notifikacija
+        notifikacija(8,0,0);
+        //------------------------------------------------------------------------------------------
     }
 
     //-------------------------------------------------------------------------------------------- > metode
@@ -165,5 +170,21 @@ public class MainActivity extends AppCompatActivity {
     private void postaviNadolazeceRodendane() // mijenja tekst s listom nadolazecih rodendana
     {
         nadolazeci_rodendani.setText(stringListaNadolazecihRodendana());
+    }
+
+    private void notifikacija(int sat, int minuta, int sekunda) // salje notifikaciju u odredeni broj sati
+    {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar cal = Calendar.getInstance();
+
+        cal.setTimeInMillis(System.currentTimeMillis());
+        cal.set(Calendar.HOUR_OF_DAY, sat);
+        cal.set(Calendar.MINUTE, minuta);
+        cal.set(Calendar.SECOND, sekunda);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),AlarmManager.INTERVAL_DAY,broadcast);
     }
 }

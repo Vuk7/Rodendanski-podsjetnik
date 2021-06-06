@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">Rođendanski podsjetnik</string>
-    <string name="tekstview">TekstvIEW</string>
     <string name="danas">DANAS</string>
     <string name="nadolaze_i">NADOLAZEĆI</string>
     <string name="ime_prezime_ima_ro_endan_i_10_drugih">Ime Prezime ima rođendan i 10 drugih</string>
-    <string name="ime_prezime_ima_ro_endan">Ime Prezime ima rođendan</string>
     <string name="vi_e">VIŠE</string>
     <string name="ime_prezime_20_5">Ime Prezime (20.5)</string>
     <string name="svi">SVI</string>
