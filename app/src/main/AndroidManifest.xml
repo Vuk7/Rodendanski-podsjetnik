@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RođendanskiPodsjetnik">
-        <activity android:name=".DodajActivity"></activity>
-        <activity android:name=".SviActivity" />
-        <activity android:name=".ViseActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".DodajActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".SviActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ViseActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
