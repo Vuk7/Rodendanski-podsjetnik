@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     //-------------------------------------------------------------------------------------------- > konstante
     public static final int BROJ_PRIKAZANIH_RODENDANA_DANAS = 4; // koliko osoba je prikazano na prvom ekranu
+    public static final int BROJ_PRIKAZANIH_NADOLAZECIH_RODENDANA = 4; // koliko nadolazecih rodendana je prikazano na prvom ekranu
     //-------------------------------------------------------------------------------------------- > objekti
     Rodendan rod = new Rodendan(MainActivity.this);
     //----------------------------------------------------------------------------------------------
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button dodaj; // tipka koja prebacuje u DodajActivity (povezana sa dodaj_tipka)
 
     private TextView danas_rodendani; // tekst s listom danasnjig rodendana (ima_rodendan)
+    private TextView nadolazeci_rodendani; // tekst s listom nadolazecis rodendana (nadolazeci_tekst)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         });
         //---------------------------------------------------------------------------------------- > TextView ima_rodendan
         danas_rodendani = (TextView) findViewById(R.id.ima_rodendan);
+        //---------------------------------------------------------------------------------------- > TextView nadolazeci_tekst
+        nadolazeci_rodendani = (TextView) findViewById(R.id.nadolazeci_tekst);
         //---------------------------------------------------------------------------------------- > postavljanje teksta
         postaviTekst(); // mijenja tekstove s listom rodendana
         //---------------------------------------------------------------------------------------- >
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         String datum = vratiDanasnjiDatum();
         String rodendan;
         int brojac = 0;
+        ViseActivity.idovi.clear();
 
         for(int i=0;i<rod.datumi_rodenja.size();i++)
         {
@@ -110,8 +117,53 @@ public class MainActivity extends AppCompatActivity {
         danas_rodendani.setText(stringListaRodendana());
     }
 
-    private void postaviNadolazeceRodendane()
+    private String dodajDane(int broj_dana) // vraca string s datumom koji ce biti za zeljeni broj dana
     {
+        Calendar c = Calendar.getInstance();
+        int dan = c.get(Calendar.DAY_OF_MONTH);
+        int mjesec = c.get(Calendar.MONTH); mjesec++;
+        int godina = c.get(Calendar.YEAR);
 
+        String dt = String.format("%02d",dan) + "." + String.format("%02d",mjesec) + "." + godina + ".";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
+        try {
+            c.setTime(sdf.parse(dt));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DATE,broj_dana);
+        dt = sdf.format(c.getTime());
+        return dt;
+    }
+
+    private String stringListaNadolazecihRodendana() // vraca string s listom rodendana u sljedecih 7 dana
+    {
+        String str = "";
+        String rodendan;
+        String datum;
+        int brojac = 0;
+
+        for(int j=1;j<=7;j++)
+        {
+            datum = dodajDane(j);
+            for (int i = 0; i < rod.datumi_rodenja.size(); i++)
+            {
+                rodendan = rod.datumi_rodenja.get(i);
+                if (rodendan.substring(0, rodendan.length() - 5).equals(datum.substring(0,datum.length() - 5))) {
+                    brojac++;
+                    if (brojac <= BROJ_PRIKAZANIH_NADOLAZECIH_RODENDANA) {
+                        str += (rod.nazivi_osoba.get(i) + "(" + rod.datumi_rodenja.get(i).substring(0,rod.datumi_rodenja.get(i).length() - 5) + ")" + "\n\n");
+                    }
+                }
+            }
+        }
+        if(brojac == 0) str += "Nemate nadolazećih rođendana u sljedećih 7 dana.";
+        if(brojac > BROJ_PRIKAZANIH_NADOLAZECIH_RODENDANA) str += "i " + (brojac-BROJ_PRIKAZANIH_NADOLAZECIH_RODENDANA) + " drugih.";
+        return str;
+    }
+
+    private void postaviNadolazeceRodendane() // mijenja tekst s listom nadolazecih rodendana
+    {
+        nadolazeci_rodendani.setText(stringListaNadolazecihRodendana());
     }
 }

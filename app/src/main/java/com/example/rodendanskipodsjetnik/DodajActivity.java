@@ -161,27 +161,36 @@ public class DodajActivity extends AppCompatActivity {
         return txt;
     }
 
-    private boolean provjeriKomentar() // provjerava je li upisan komentar
+    private int provjeriKomentar() // provjerava je li upisan komentar
     {
         String komentar_str = dohvatiKomentar();
         if(komentar_str.isEmpty())
         {
-            poruka("Niste upisali komentar!");
-            return false;
+            return 1;
         }
         else if(komentar_str.length() > maxDuljinaKomentara)
         {
             poruka("Upisali ste predugi komentar!");
-            return false;
+            return 2;
         }
-        return true;
+        return 0;
     }
     //-------------------------------------------------------------------------------------------- > dodavanje rodendana
     private void dodajRodendan() {
-        if (!provjeriImePrezime() || !provjeriDatum() || !provjeriKomentar()) return;
+        if (!provjeriImePrezime() || !provjeriDatum() || provjeriKomentar() == 2) return;
+        //komentar
+        String kom = "";
+        if(provjeriKomentar() == 1)
+        {
+            kom = " ";
+        }
+        else if(provjeriKomentar() == 0)
+        {
+            kom = dohvatiKomentar();
+        }
         //dodajemo rodendan u bazu
         Rodendan rod = new Rodendan(DodajActivity.this);
-        rod.dodajRodendan(dohvatiImePrezime(), dohvatiDatum(), dohvatiKomentar());
+        rod.dodajRodendan(dohvatiImePrezime(), dohvatiDatum(), kom);
         poruka("Rođendan uspješno dodan!");
         //mijenjamo tekst u pokrenutim activityima
         MainActivity maina = new MainActivity();
