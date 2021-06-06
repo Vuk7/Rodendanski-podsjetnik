@@ -134,7 +134,7 @@ public class DodajActivity extends AppCompatActivity {
     private void postaviDatum(int year, int month, int day) // postavljamo datum rodenja
     {
         godina = year; mjesec = month; dan = day;
-        datum.setText(dan + "." + mjesec + "." + godina + ".");
+        datum.setText(String.format("%02d",dan) + "." + String.format("%02d",mjesec) + "." + godina + ".");
         datum.setTextColor(Color.parseColor("#7B7B7B"));
     }
 
@@ -151,7 +151,7 @@ public class DodajActivity extends AppCompatActivity {
 
     public String dohvatiDatum() // vraca datum u obliku stringa
     {
-        String str = dan + "." + mjesec + "." + godina + ".";
+        String str = String.format("%02d",dan) + "." + String.format("%02d",mjesec) + "." + godina + ".";
         return str;
     }
     //-------------------------------------------------------------------------------------------- > komentar

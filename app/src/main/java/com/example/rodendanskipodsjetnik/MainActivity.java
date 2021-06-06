@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
         postaviNadolazeceRodendane();
     }
 
-    public String vratiDanasnjiDatum() // vraca string s danasnjim datuomom (pr. "4.6.")
+    public String vratiDanasnjiDatum() // vraca string s danasnjim datumom (pr. "4.6.")
     {
         Calendar c = Calendar.getInstance();
         int dan = c.get(Calendar.DAY_OF_MONTH);
         int mjesec = c.get(Calendar.MONTH); mjesec++;
-        String str = dan + "." + mjesec + ".";
+        String str = String.format("%02d",dan) + "." + String.format("%02d",mjesec) + ".";
         return str;
     }
 

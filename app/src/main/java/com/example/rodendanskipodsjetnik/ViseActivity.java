@@ -71,7 +71,7 @@ public class ViseActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         int dan = c.get(Calendar.DAY_OF_MONTH);
         int mjesec = c.get(Calendar.MONTH);
-        naziv_i_datum.setText("Rođendani danas (" + dan + "." + (mjesec+1) + ".)");
+        naziv_i_datum.setText("Rođendani danas (" + String.format("%02d",dan) + "." + String.format("%02d",(mjesec+1)) + ".)");
     }
 
     private void postaviListuRodendana() // dodaje opcije u lista rodendana
