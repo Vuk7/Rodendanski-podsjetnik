@@ -89,6 +89,8 @@ public class InformacijeActivity extends AppCompatActivity {
                 dialog.cancel();
                 rod.obrisiRodendan(rod.idovi_osoba.get(id_osobe));
                 startActivity(new Intent(InformacijeActivity.this, SviActivity.class));
+                MainActivity maina = new MainActivity();
+                maina.postaviTekst();
                 finish();
             }
         });
