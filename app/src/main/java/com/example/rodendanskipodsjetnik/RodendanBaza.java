@@ -75,4 +75,10 @@ public class RodendanBaza extends SQLiteOpenHelper
         Cursor podaci = db.rawQuery(query, null);
         return podaci;
     }
+
+    public void obrisiRodendanUBazi(int id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long i = db.delete(TABLE_NAME, COL0 + " = ?", new String[]{String.valueOf(id)});
+    }
 }

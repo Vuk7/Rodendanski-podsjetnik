@@ -17,4 +17,7 @@
     <string name="izaberite_datum_ro_enja">Izaberite datum rođenja</string>
     <string name="dodajte_komentar">DODAJTE KOMENTAR</string>
     <string name="unesite_komentar_neobavezno">Unesite komentar (neobavezno)</string>
+    <string name="komentar_ovo_je_komentar">Komentar: ovo je komentar</string>
+    <string name="datum_rodenja_01_01_2020">Datum rodenja: 01.01.2020.</string>
+    <string name="obrisi">obrisi</string>
 </resources>

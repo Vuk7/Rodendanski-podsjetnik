@@ -17,6 +17,7 @@ public class Rodendan {
     public ArrayList<String> nazivi_osoba = new ArrayList<String>();
     public ArrayList<String> datumi_rodenja = new ArrayList<String>();
     public ArrayList<String> komentari = new ArrayList<String>();
+    public ArrayList<Integer> idovi_osoba = new ArrayList<Integer>();
 
     //-------------------------------------------------------------------------------------------- > metode
     public void dodajRodendan(String naziv_osobe, String datum, String komentar)
@@ -29,12 +30,19 @@ public class Rodendan {
         nazivi_osoba.clear();
         datumi_rodenja.clear();
         komentari.clear();
+        idovi_osoba.clear();
         Cursor podaci = db.ucitajRodendanBazu();
         while(podaci.moveToNext())
         {
+            idovi_osoba.add(podaci.getInt(0));
             nazivi_osoba.add(podaci.getString(1));
             datumi_rodenja.add(podaci.getString(2));
             komentari.add(podaci.getString(3));
         }
+    }
+
+    public void obrisiRodendan(int id)
+    {
+        db.obrisiRodendanUBazi(id);
     }
 }

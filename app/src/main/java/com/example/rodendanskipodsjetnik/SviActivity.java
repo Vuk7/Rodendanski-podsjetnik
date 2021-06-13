@@ -57,6 +57,10 @@ public class SviActivity extends AppCompatActivity {
         lista_svi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SviActivity.this, InformacijeActivity.class);
+                intent.putExtra("EXTRA_SESSION_ID",String.valueOf((int)id));
+                startActivity(intent);
+                finish();
             }
         });
         //------------------------------------------------------------------------------------------

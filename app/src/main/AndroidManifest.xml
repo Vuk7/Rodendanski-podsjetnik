@@ -9,16 +9,26 @@
         android:roundIcon="@mipmap/ikona"
         android:supportsRtl="true"
         android:theme="@style/Theme.RođendanskiPodsjetnik">
-        <activity android:name=".DodajActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".SviActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ViseActivity" android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name=".InformacijeActivity"></activity>
+        <activity
+            android:name=".DodajActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SviActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver android:name=".AlarmReceiver" />
     </application>
 

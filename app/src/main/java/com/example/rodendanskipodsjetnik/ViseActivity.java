@@ -61,6 +61,10 @@ public class ViseActivity extends AppCompatActivity {
         lista_danas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ViseActivity.this, InformacijeActivity.class);
+                intent.putExtra("EXTRA_SESSION_ID",String.valueOf(idovi.get((int)id)));
+                startActivity(intent);
+                finish();
             }
         });
         //------------------------------------------------------------------------------------------
