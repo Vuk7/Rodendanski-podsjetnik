@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ikona"
         android:supportsRtl="true"
         android:theme="@style/Theme.RođendanskiPodsjetnik">
-        <activity android:name=".InformacijeActivity"></activity>
+        <activity android:name=".InformacijeActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".DodajActivity"
             android:screenOrientation="portrait" />
